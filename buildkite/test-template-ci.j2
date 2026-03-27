@@ -528,7 +528,7 @@ steps:
             - exit_status: -10  # Agent was lost
               limit: 2
     {% for step in steps %}
-    {% if step.torch_nightly or (step.mirror and step.mirror.torch_nightly is defined) %}
+    {% if step.mirror and step.mirror.torch_nightly is defined %}
       {% set ns = namespace(blocked=1) %}
       {% if nightly == "1" or branch == "main" %}
       {% set ns.blocked = 0 %}
